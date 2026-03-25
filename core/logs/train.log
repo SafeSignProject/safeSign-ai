@@ -1,0 +1,26 @@
+[2026-03-24 17:44:30] INFO - Generating toy dataset...
+[2026-03-24 17:44:30] INFO - Creating dataloaders...
+[2026-03-24 17:44:34] INFO - Train: 140, Val: 30, Test: 30
+[2026-03-24 17:44:34] INFO - Building model...
+[2026-03-24 17:44:49] INFO - Total params: 113,421,461, Trainable: 113,421,461
+[2026-03-24 17:44:49] INFO - Training for max 30 epochs on cpu
+[2026-03-24 17:44:49] INFO - Backbone frozen for first 2 epochs
+[2026-03-24 17:46:23] INFO - Epoch 1/30 | Train Loss: 3.3080 | Val Loss: 3.2738 | Type F1: 0.0294 | Risk F1: 0.0000 | Score MAE: 0.3515
+[2026-03-24 17:46:24] INFO -   Best model saved (epoch 1)
+[2026-03-24 17:48:03] INFO - Epoch 2/30 | Train Loss: 3.2854 | Val Loss: 3.2607 | Type F1: 0.1073 | Risk F1: 0.0000 | Score MAE: 0.3456
+[2026-03-24 17:48:04] INFO -   Best model saved (epoch 2)
+[2026-03-24 17:48:04] INFO - Backbone unfrozen!
+[2026-03-24 19:01:29] INFO - Generating toy dataset...
+[2026-03-24 19:01:29] INFO - Creating dataloaders...
+[2026-03-24 19:01:32] INFO - Train: 140, Val: 30, Test: 30
+[2026-03-24 19:01:32] INFO - Building model...
+[2026-03-24 19:01:35] INFO - Total params: 113,421,461, Trainable: 113,421,461
+[2026-03-24 19:01:36] INFO - Training for max 30 epochs on mps
+[2026-03-24 19:01:36] INFO - Backbone frozen for first 2 epochs
+[2026-03-24 19:02:18] INFO - Epoch 1/30 | Train Loss: 3.3096 | Val Loss: 3.2709 | Type F1: 0.0278 | Risk F1: 0.0351 | Score MAE: 0.3513
+[2026-03-24 19:02:19] INFO -   Best model saved (epoch 1)
+[2026-03-24 19:02:53] INFO - Epoch 2/30 | Train Loss: 3.2784 | Val Loss: 3.2554 | Type F1: 0.0294 | Risk F1: 0.0351 | Score MAE: 0.3452
+[2026-03-24 19:02:55] INFO -   Best model saved (epoch 2)
+[2026-03-24 19:02:55] INFO - Backbone unfrozen!
+[2026-03-24 20:42:49] INFO - Epoch 3/30 | Train Loss: 3.2471 | Val Loss: 3.2001 | Type F1: 0.1278 | Risk F1: 0.1212 | Score MAE: 0.3365
+[2026-03-24 20:42:55] INFO -   Best model saved (epoch 3)

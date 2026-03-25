@@ -1,0 +1,94 @@
+# ============================================================
+# 주거용 임대차 계약서 독소조항 탐지 모델 설정
+# ============================================================
+
+# --- Model ---
+model:
+  backbone: "monologg/koelectra-base-v3-discriminator"
+  hidden_dim: 768
+  gate_hidden_dim: 256
+  dropout: 0.3
+  max_sentences_per_clause: 10
+  max_tokens_per_sentence: 128
+  freeze_backbone_epochs: 2  # 초기 N 에폭 동안 backbone freeze
+
+# --- Clause Type Classes (Head A) ---
+clause_types:
+  - contract_period
+  - deposit
+  - rent_fee
+  - termination
+  - renewal
+  - restoration
+  - repair
+  - damages
+  - penalty
+  - deposit_return
+  - special_terms
+  - defect
+  - other
+
+# --- Risk Labels (Head B) ---
+risk_labels:
+  - legal_violation
+  - unfair_clause
+  - ambiguity
+
+# --- Risk Score Names (Head C) ---
+risk_score_names:
+  - legality_score
+  - unfairness_score
+  - ambiguity_score
+  - overall_risk
+
+# --- Training ---
+training:
+  seed: 42
+  epochs: 30
+  batch_size: 8
+  learning_rate: 2.0e-5
+  backbone_lr: 1.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  max_grad_norm: 1.0
+  early_stopping_patience: 5
+  val_check_interval: 1
+  fp16: false
+
+# --- Loss Weights ---
+loss_weights:
+  clause_type: 1.0
+  risk_label: 1.0
+  risk_score: 0.5
+
+# --- Loss Options ---
+loss_options:
+  use_focal_loss: false
+  focal_alpha: 0.25
+  focal_gamma: 2.0
+  use_class_weights: true
+
+# --- Data ---
+data:
+  train_path: "data/train.jsonl"
+  val_path: "data/val.jsonl"
+  test_path: "data/test.jsonl"
+  num_workers: 0
+  train_val_test_split: [0.7, 0.15, 0.15]
+
+# --- Inference ---
+inference:
+  top_k_sentences: 3
+  risk_label_threshold: 0.5
+  checkpoint_path: "checkpoints/best_model.pt"
+
+# --- API ---
+api:
+  host: "0.0.0.0"
+  port: 8000
+
+# --- Paths ---
+paths:
+  checkpoint_dir: "checkpoints"
+  log_dir: "logs"
+  output_dir: "outputs"
